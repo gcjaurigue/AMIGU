@@ -3,220 +3,153 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mint your Amigurumeme using $AMIGU</title>
+  <title>$AMIGU – Mint Your Amigurumeme</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --pink: #ffc8dd;
-      --peach: #ffb6b9;
-      --blue: #a0d8ef;
-      --bg: #fff0f6;
-      --text: #444444;
-      --highlight: #ff8fa3;
-    }
-
-    body {
+    html, body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-      text-align: center;
-    }
-
-    /* Yarn & Stitch Background */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+      padding: 0;
       height: 100%;
-      background-image: url('https://www.transparenttextures.com/patterns/soft-wallpaper.png');
-      opacity: 0.07;
-      z-index: -1;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      background-color: #fff0f6;
+      color: #444;
     }
 
-    /* Animated Character */
-    .amigu-character {
-      width: 120px;
-      margin: 2em auto;
+    .hero-container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-image:
+        linear-gradient(to bottom, rgba(255,240,246,0.8), rgba(255,255,255,0.9)),
+        url('https://www.transparenttextures.com/patterns/knitted-net.png');
+      background-size: cover;
+      background-repeat: repeat;
+      background-position: center;
+      padding: 1.5em;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ff70a6;
+      margin: 0.5em 0 0.2em;
+      text-shadow: 1px 1px #fff;
+    }
+
+    .japanese {
+      font-size: 2rem;
+      color: #d36d82;
+      margin-bottom: 0.3em;
+      text-shadow: 1px 1px #fff;
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      margin-bottom: 1.5em;
+      color: #555;
+    }
+
+    .amigu-image {
+      width: 140px;
+      margin-bottom: 1em;
       animation: float 3s ease-in-out infinite;
     }
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
+      50% { transform: translateY(-10px); }
     }
 
-    /* Milestone Tracker */
-    .milestone-tracker {
-      max-width: 600px;
-      margin: 4em auto;
-      padding: 1.5em;
-      background: #ffe8f1;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8em;
+      margin-bottom: 1.2em;
     }
 
-    .milestone-tracker h3 {
-      font-size: 1.4rem;
-      color: var(--highlight);
-      margin-bottom: 1em;
-    }
-
-    .milestone-step {
-      background: #fff;
-      border-radius: 12px;
-      margin-bottom: 1em;
-      padding: 1em;
-      font-size: 1rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-
-    header {
-      padding: 2em 1em 1em;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      color: var(--highlight);
-      margin: 0;
-    }
-
-    .tagline {
-      font-size: 1rem;
-      color: var(--text);
-      margin-top: 0.4em;
-    }
-
-    .japanese-logo {
-      font-size: 2rem;
-      font-weight: bold;
-      margin: 1em 0 2em;
-      color: #d36d82;
-    }
-
-    .cta-section button {
-      padding: 1em 2.5em;
-      margin: 1em auto;
-      display: block;
-      background: var(--peach);
+    .buttons button {
+      padding: 0.9em 2em;
+      font-size: 1.05rem;
       border: none;
       border-radius: 30px;
+      background: linear-gradient(145deg, #ffb6b9, #ff70a6);
       color: white;
       font-weight: bold;
-      font-size: 1.1rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
       cursor: pointer;
-      transition: background 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
     }
 
-    .cta-section button:hover {
-      background: var(--highlight);
+    .buttons button:hover {
+      transform: scale(1.05);
+      background: #ff8fa3;
     }
 
-    .button-desc {
+    .desc {
       font-size: 0.95rem;
-      color: var(--text);
-      margin-top: -0.3em;
-      margin-bottom: 1.2em;
-      padding: 0 1em;
-    }
-
-    .giveaway {
-      margin-top: 2em;
-      font-size: 1.1rem;
-      color: #b23a48;
-      font-weight: bold;
-    }
-
-    .details {
-      margin: 3em auto;
-      max-width: 600px;
-    }
-
-    .details h2 {
-      color: var(--highlight);
-      font-size: 1.8rem;
-      margin-bottom: 1em;
-    }
-
-    .details ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .details li {
-      background: #ffe8f1;
-      margin-bottom: 1em;
-      padding: 1em 1.2em;
+      color: #666;
+      background: rgba(255,255,255,0.7);
+      padding: 0.8em 1.2em;
       border-radius: 12px;
-      font-size: 1rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
     }
 
-    footer {
-      margin-top: 4em;
-      font-size: 0.9rem;
-      color: #999;
+    .gamify-badge {
+      background: #ffe4ec;
+      border: 2px dashed #ff8fa3;
+      color: #b23a48;
+      font-size: 0.85rem;
+      padding: 0.5em 1em;
+      margin-bottom: 1.2em;
+      border-radius: 999px;
+      animation: pulse 2.5s infinite;
     }
 
-    small {
-      display: block;
-      margin-top: 1em;
-      font-size: 0.8rem;
-      color: var(--text);
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 1em;
+      font-size: 0.75rem;
+      color: #888;
+      text-align: center;
+      width: 100%;
+      padding: 0 1em;
     }
   </style>
 </head>
 <body>
-  <header>
+  <div class="hero-container">
+    <img class="amigu-image" src="AMIGU.gif" alt="Amigurumi Character">
+    <div class="japanese">アミグルミ</div>
     <h1>$AMIGU</h1>
     <div class="tagline">Your friend. Your meme. Your digital companion.</div>
-  </header>
 
-  <div class="japanese-logo">アミグルミ</div>
+    <div class="gamify-badge">🎯 Collect. Mint. Earn. Join the Yarnverse!</div>
 
-  <section class="cta-section">
-    <button onclick="window.open('https://pump.fun', '_blank')">Buy and Swap Now on pump.fun</button>
-
-    <button onclick="alert('Minting for holders only')">Mint for Free Now</button>
-    <div class="button-desc">Exclusive for holders with at least 50,000 $AMIGU tokens — only 777 free mints available!</div>
-
-    <button onclick="alert('Burn to mint coming soon')">Burn to Mint</button>
-    <div class="button-desc">Own your Amigurumeme by burning 10,000 $AMIGU — help the community grow stronger!</div>
-
-    <div class="giveaway">
-      🎁 AMIGU NFT holders are eligible for giveaways at $1M, $10M, and $100M market cap snapshots!
+    <div class="buttons">
+      <button onclick="window.open('https://pump.fun', '_blank')">🛒 Buy & Swap Now</button>
+      <button onclick="alert('Minting for holders only')">🎁 Free Mint (777)</button>
+      <button onclick="alert('Burn to mint coming soon')">🔥 Burn to Mint</button>
     </div>
-  </section>
 
-  <section class="details">
-    <h2>Minting Details</h2>
-    <ul>
-      <li>🎉 <strong>Total Supply:</strong> 7,777 NFTs</li>
-      <li>🎁 <strong>First 777</strong> NFTs are <strong>free to mint</strong> for holders with at least <strong>50,000 $AMIGU tokens</strong></li>
-      <li>🔥 <strong>7,000 NFTs</strong> are <strong>burn-to-mint</strong></li>
-      <li>💸 <strong>70%</strong> of burned tokens are permanently destroyed</li>
-      <li>🎊 <strong>30%</strong> goes to <strong>giveaways</strong> at <strong>$1M, $10M, and $100M</strong> market cap snapshots</li>
-      <li>💰 Giveaways include additional rewards from <strong>creator earnings on pump.fun</strong></li>
-    </ul>
-  </section>
+    <div class="desc">
+      🎁 Hold 50,000 $AMIGU = 1 Free Mint (limited 777)<br />
+      🔥 Burn 10,000 $AMIGU = Mint Your AMIGU NFT<br />
+      🎉 Giveaway Milestones: $1M • $10M • $100M Market Cap!
+    </div>
 
-  <div class="amigu-character">
-    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" alt="Floating Amigu" width="100%">
+    <div class="footer">
+      © 2025 AMIGU • This is not financial advice. For fun, memes, and community.
+    </div>
   </div>
-
-  <div class="milestone-tracker">
-    <h3>🎯 Giveaway Milestones</h3>
-    <div class="milestone-step">📍 $1M Market Cap — Snapshot & Giveaway</div>
-    <div class="milestone-step">📍 $10M Market Cap — Bigger Rewards</div>
-    <div class="milestone-step">📍 $100M Market Cap — Legendary Holder Drop</div>
-  </div>
-
-  <footer>
-    <p>© 2025 Amigurumi NFT • Powered by Solana + pump.fun</p>
-    <small>This project is for entertainment and artistic purposes only. It is not an investment or financial product. This is not financial advice. Always do your own research before participating.</small>
-  </footer>
 </body>
 </html>
